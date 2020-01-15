@@ -3,9 +3,11 @@ import Chess from 'chess.js';
 import Chessboard from 'chessboardjsx';
 
 import './index.css'
+import elvis from "./elvis.png";
+import lebronJames from "./kingJames.png";
 
 class Page extends Component {
-
+  
   state = { fen: 'start' };
 
   componentDidMount() {
@@ -54,6 +56,28 @@ class Page extends Component {
           boardStyle={{
             borderRadius: '7px',
             boxShadow: `0 7px 17px rgba(0, 0, 0, 0.4)`
+          }}
+          pieces={{
+            wK: ({ squareWidth, isDragging }) => (
+              <img
+                style={{
+                  width: isDragging ? squareWidth * 1.75 : squareWidth,
+                  height: isDragging ? squareWidth * 1.75 : squareWidth
+                }}
+                src={elvis}
+                alt={'elvis'}
+              />
+            ),
+            bK: ({ squareWidth, isDragging }) => (
+              <img
+                style={{
+                  width: isDragging ? squareWidth * 1.75 : squareWidth,
+                  height: isDragging ? squareWidth * 1.75 : squareWidth
+                }}
+                src={lebronJames}
+                alt={'lebron james'}
+              />
+            )
           }}
         />
         <h3 className="reload" onClick={this.reset}>Reload Game</h3>
